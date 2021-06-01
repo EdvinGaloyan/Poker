@@ -16,7 +16,7 @@ public class Main {
 
 
         // File Creating
-        /*List<Card> cards = new ArrayList<>(52);
+        List<Card> cards = new ArrayList<>(52);
         for (CardSuit cardSuit : CardSuit.values()) {
             for (CardValue cardValue : CardValue.values()) {
                 cards.add(new Card(cardSuit, cardValue));
@@ -42,7 +42,7 @@ public class Main {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
 
         //File Reading
         List<Game> games = CombinationReader.read("text.txt");
