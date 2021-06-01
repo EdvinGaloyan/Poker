@@ -1,15 +1,22 @@
 package am.gitc.poker;
 
 import am.gitc.poker.classes.Card;
+import am.gitc.poker.classes.Combination;
+import am.gitc.poker.classes.Game;
 import am.gitc.poker.enums.CardSuit;
 import am.gitc.poker.enums.CardValue;
+import am.gitc.poker.readers.CombinationReader;
+import am.gitc.poker.resolver.CombinationResolver;
 
 import java.io.*;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Card> cards = new ArrayList<>(52);
+
+
+        // File Creating
+        /*List<Card> cards = new ArrayList<>(52);
         for (CardSuit cardSuit : CardSuit.values()) {
             for (CardValue cardValue : CardValue.values()) {
                 cards.add(new Card(cardSuit, cardValue));
@@ -35,8 +42,18 @@ public class Main {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
+        //File Reading
+        List<Game> games = CombinationReader.read("text.txt");
+
+        for (Game game : games) {
+            System.out.println("Combinations is`");
+            Combination firstPlayer = CombinationResolver.resolve(game.getFirstPlayer());
+            Combination secondPlayer = CombinationResolver.resolve(game.getSecondPlayer());
+            System.out.println(game.getFirstPlayer() + " "
+                    + firstPlayer.getRank() + "   " + secondPlayer.getRank() + " " + game.getSecondPlayer());
+        }
 
     }
 }
